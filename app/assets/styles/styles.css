@@ -1,4 +1,8 @@
+$tempColor: #333;
+
 body {
   font-family: 'Roboto' sans-serif;
-  color: #333;
-} 
+  color: $tempColor;
+  border: 15px solid $tempColor;
+  border-radius: 25%;
+}

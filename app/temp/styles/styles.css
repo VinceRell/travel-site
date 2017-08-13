@@ -606,7 +606,7 @@ img {
   overflow: hidden;
   padding-left: 18px;
   padding-right: 18px;
-  max-width: 1200px;
+  max-width: 1236px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -621,7 +621,7 @@ img {
   }
 
 .wrapper--b-margin{
-      margin-bottom: 1rem;
+      margin-bottom: 1.0rem;
   }
 
 @media(min-width: 570px){
@@ -651,9 +651,18 @@ img {
        width: 33.33%;
      }
 
+     .row__medium-4--larger{
+       width: 37%;
+     }
+
+
     .row__medium-8{
       float: left;
       width: 66.66%;
+    }
+
+    .row__medium-8--smaller{
+      width: 63%;
     }
   }
 

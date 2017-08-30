@@ -1,0 +1,16 @@
+.testimonial{
+    position: relative;
+    background-color: #fff;
+
+    &__image{
+       position: absolute;
+       transform: translateX(50%) translateY(-50%);
+       border: 2px solid #fff;
+       border-radius: 50%;
+    }
+
+   &__text-content{
+     padding-top: 70px;
+     text-align: center;
+   }
+}

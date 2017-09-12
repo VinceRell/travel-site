@@ -38,4 +38,8 @@ gulp.task("copySprite", ["createSprite"], function(){
     .pipe(gulp.dest("./app/assets/styles/modules"));
 });
 
-gulp.task("icons", ["beginClean","createSprite","copySpriteGraphic","copySprite"]);
+gulp.task("endTask",["copySpriteGraphic", "copySprite"],function(){
+  return del(["./app/temp/sprite"])
+});
+
+gulp.task("icons", ["beginClean","createSprite","copySpriteGraphic","copySprite", "endTask"]);

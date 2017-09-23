@@ -4,3 +4,5 @@ var Person = function(name){
     console.log("Hello my name is " + this.name);
   }
 }
+
+module.exports = Person;

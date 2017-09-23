@@ -87,6 +87,8 @@ var Person = function(name){
   }
 }
 
+module.exports = Person;
+
 
 /***/ })
 /******/ ]);

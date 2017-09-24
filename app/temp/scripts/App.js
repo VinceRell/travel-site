@@ -69,6 +69,8 @@
 
 var Person = __webpack_require__(1);
 
+alert("this is a test?");
+
 var John = new Person("John");
 John.greet();
 

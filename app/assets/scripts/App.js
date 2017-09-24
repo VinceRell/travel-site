@@ -1,4 +1,6 @@
-var Person = require("./modules/Person.js");
+var Person = require("./modules/Person");
+
+alert("this is a test?");
 
 var John = new Person("John");
 John.greet();

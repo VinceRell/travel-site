@@ -1,9 +1,3 @@
-var Person = require("./modules/Person");
+import MobileMenu from "./modules/MobileMenu";
 
-alert("this is a test?");
-
-var John = new Person("John");
-John.greet();
-
-var Jane = new Person("Jane");
-Jane.greet();
+const mobileMenu = new MobileMenu();

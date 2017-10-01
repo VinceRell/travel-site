@@ -11,8 +11,12 @@
     font-weight: 500;
   }
 
-  &__blue{
+  &--blue{
     color: $mainblue;
+  }
+
+  &--less-margin{
+    margin-bottom: 1.3rem;
   }
 
   &__icon{

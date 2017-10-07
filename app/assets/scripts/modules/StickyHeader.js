@@ -9,8 +9,8 @@ class StickyHeader {
     this.pageSections = $(".page-section");
     this.headerLinks = $(".primary-nav a");
     this.headerTriggerElement = $(".large-hero__title");
-    this.headerWaypoint();
-    this.pageSectionWaypoint();
+    this.headerWaypoint(this.siteHeader);
+    this.pageSectionWaypoint(this.headerLinks);
     this.smoothScrolling();
     this.refreshWaypoints();
   }
@@ -25,22 +25,20 @@ class StickyHeader {
     this.headerLinks.smoothScroll();
   }
 
-  headerWaypoint(){
-    let that = this;
+  headerWaypoint(header){
     new Waypoint({
       element: this.headerTriggerElement[0],
       handler: function(direction){
         if(direction == "down"){
-          that.siteHeader.addClass("site-header--dark");
+          header.addClass("site-header--dark");
         }else {
-          that.siteHeader.removeClass("site-header--dark");
+          header.removeClass("site-header--dark");
         }
       }
     });
   }
 
-  pageSectionWaypoint(){
-    let that = this;
+  pageSectionWaypoint(links){
     this.pageSections.each(function(){
       let currentSection = this;
       new Waypoint({
@@ -48,7 +46,7 @@ class StickyHeader {
         handler: function(direction){
           if(direction == "down"){
             let matchingHeaderLink = currentSection.getAttribute("data-matching-link");
-            that.headerLinks.removeClass("current-link");
+            links.removeClass("current-link");
             $(matchingHeaderLink).addClass("current-link");
           }
         },
@@ -60,7 +58,7 @@ class StickyHeader {
         handler: function(direction){
           if(direction == "up"){
             let matchingHeaderLink = currentSection.getAttribute("data-matching-link");
-            that.headerLinks.removeClass("current-link");
+            links.removeClass("current-link");
             $(matchingHeaderLink).addClass("current-link");
           }
         },

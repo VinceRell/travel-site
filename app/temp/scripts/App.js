@@ -11269,7 +11269,7 @@ var RevealScroll = function () {
     this.itemsToReveal = elm;
     this.offsetPercentage = offsetPerc;
     this.hideInitially();
-    this.revealItems();
+    this.revealItems(this.offsetPercentage);
   }
 
   _createClass(RevealScroll, [{
@@ -11279,8 +11279,7 @@ var RevealScroll = function () {
     }
   }, {
     key: "revealItems",
-    value: function revealItems() {
-      var that = this;
+    value: function revealItems(propReff) {
       this.itemsToReveal.each(function () {
         var currentItem = this;
         new Waypoint({
@@ -11288,7 +11287,7 @@ var RevealScroll = function () {
           handler: function handler() {
             (0, _jquery2.default)(currentItem).addClass("reveal-item--visible");
           },
-          offset: that.offsetPercentage
+          offset: propReff
         });
       });
     }
@@ -11337,8 +11336,8 @@ var StickyHeader = function () {
     this.pageSections = (0, _jquery2.default)(".page-section");
     this.headerLinks = (0, _jquery2.default)(".primary-nav a");
     this.headerTriggerElement = (0, _jquery2.default)(".large-hero__title");
-    this.headerWaypoint();
-    this.pageSectionWaypoint();
+    this.headerWaypoint(this.siteHeader);
+    this.pageSectionWaypoint(this.headerLinks);
     this.smoothScrolling();
     this.refreshWaypoints();
   }
@@ -11357,23 +11356,21 @@ var StickyHeader = function () {
     }
   }, {
     key: "headerWaypoint",
-    value: function headerWaypoint() {
-      var that = this;
+    value: function headerWaypoint(header) {
       new Waypoint({
         element: this.headerTriggerElement[0],
         handler: function handler(direction) {
           if (direction == "down") {
-            that.siteHeader.addClass("site-header--dark");
+            header.addClass("site-header--dark");
           } else {
-            that.siteHeader.removeClass("site-header--dark");
+            header.removeClass("site-header--dark");
           }
         }
       });
     }
   }, {
     key: "pageSectionWaypoint",
-    value: function pageSectionWaypoint() {
-      var that = this;
+    value: function pageSectionWaypoint(links) {
       this.pageSections.each(function () {
         var currentSection = this;
         new Waypoint({
@@ -11381,7 +11378,7 @@ var StickyHeader = function () {
           handler: function handler(direction) {
             if (direction == "down") {
               var matchingHeaderLink = currentSection.getAttribute("data-matching-link");
-              that.headerLinks.removeClass("current-link");
+              links.removeClass("current-link");
               (0, _jquery2.default)(matchingHeaderLink).addClass("current-link");
             }
           },
@@ -11393,7 +11390,7 @@ var StickyHeader = function () {
           handler: function handler(direction) {
             if (direction == "up") {
               var matchingHeaderLink = currentSection.getAttribute("data-matching-link");
-              that.headerLinks.removeClass("current-link");
+              links.removeClass("current-link");
               (0, _jquery2.default)(matchingHeaderLink).addClass("current-link");
             }
           },

@@ -28,12 +28,8 @@ class StickyHeader {
   headerWaypoint(header){
     new Waypoint({
       element: this.headerTriggerElement[0],
-      handler: function(direction){
-        if(direction == "down"){
-          header.addClass("site-header--dark");
-        }else {
-          header.removeClass("site-header--dark");
-        }
+      handler: function(){
+        header.toggleClass("site-header--dark");
       }
     });
   }

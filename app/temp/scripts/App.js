@@ -11359,12 +11359,8 @@ var StickyHeader = function () {
     value: function headerWaypoint(header) {
       new Waypoint({
         element: this.headerTriggerElement[0],
-        handler: function handler(direction) {
-          if (direction == "down") {
-            header.addClass("site-header--dark");
-          } else {
-            header.removeClass("site-header--dark");
-          }
+        handler: function handler() {
+          header.toggleClass("site-header--dark");
         }
       });
     }
